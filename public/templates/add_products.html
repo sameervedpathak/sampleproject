@@ -1,0 +1,108 @@
+<div style="background-color: #fff;padding-top: 60px;" class="mainbox">
+    <div class="panel panel-info">
+        <div class="panel-body" style="background-color: #e9f4f4">
+            <div class="container">
+                 <h4 style="text-align: center;font-weight: 600;">SELL A PRODUCT</h4>  <br>
+                <!-- <h3 style="text-align: center;margin-bottom: 20px;font-weight: 600; "> SELL A PRODUCT</h3> -->
+                <form data-ng-submit="addProduct(product)" name="productform" id="productform" class="form-horizontal" enctype="multipart/form-data" novalidate>
+                    <div class="form-group">
+                        <label for="product_name" class="col-md-3 control-label">Product Name</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Enter Ad Title" data-ng-model="product.Ad_Title" name="Ad_Title" id="Ad_Title" required>
+                            <span>
+                            <div data-ng-messages="productform.$submitted && productform.Ad_Title.$error" role="alert" class="error_msg">
+                              <div data-ng-message="required">Please enter ad title</div>
+                            </div>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="product_description" class="col-md-3 control-label">Description</label>
+                        <div class="col-md-6">
+                            <textarea class="form-control" placeholder="Enter description" data-ng-model="product.Description" cols="" rows="" name="Description" id="Description" required></textarea>
+                            <span>
+                          <div data-ng-messages="productform.$submitted && productform.Description.$error" role="alert" class="error_msg">
+                            <div data-ng-message="required">Please enter description</div>
+                          </div>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-1" class="col-md-3 control-label">Super Category</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="maincatg_id" ng-change="getCategoryOptions(this.value())" ng-model="product.maincatg_id" ng-options="maincategory.maincatg_name for maincategory in ParentCategoryList track by maincategory.maincatg_id" required>
+                                <option value="">Super Category</option>
+                            </select>
+                            <div ng-messages="categoryForm.maincatg_id.$error">
+                                <div ng-message="required">This field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-1" class="col-md-3 control-label">Category</label>
+                        <div class="col-md-6">
+                            <select class="form-control" ng-model="product.Catg_id" ng-options="category.catg_name for category in productCategoryList track by category.catg_id" required>
+                                <option value="">Category</option>
+                            </select>
+                            <div ng-messages="categoryForm.Catg_id.$error">
+                                <div ng-message="required">This field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Price" class="col-md-3 control-label">Price</label>
+                        <div class="col-md-3">
+                            <select class="form-control" ng-model="product.CurrencyCode" ng-options="curncy.CurrencyCode for curncy in CurrencyList track by curncy.CurrencyCode" required>
+                                <option value="">Currency</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="text-input" placeholder="Enter Price" data-ng-model="product.Price" name="Price" required>
+                            <span>
+                            <div data-ng-messages="productform.$submitted && productform.Price.$error" role="alert" class="error_msg">
+                              <div data-ng-message="required">Please enter product price</div>
+                            </div>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-md-3 control-label">Shipping Options</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="text-input" name="Shipping" id="Shipping" placeholder="Enter Shipping Option" data-ng-model="product.Shipping" required>
+                            <span ng-if="productform.$submitted">
+                            <div data-ng-messages="productform.$submitted && productform.Shipping.$error" role="alert" class="error_msg">
+                              <div data-ng-message="required">Please Enter Shipping Options</div>
+                            </div>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="files" class="col-md-3 control-label">Upload Images</label>
+                       <!--  <div class="col-md-6">
+                            <button type="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-multiple="true" ngf-accept="'image/*'" ngf-max-size="5MB" ngf-resize="{width: 250, height: 250, type: 'image/jpeg'}">
+                                Select Files</button>
+                        </div> -->
+                        <div class="col-md-6"> 
+                          <div class="btnedit"> 
+                              <button type="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-multiple="true" ngf-accept="'image/*'" ngf-max-size="5MB" ngf-resize="{width: 250, height: 250, type: 'image/jpeg'}">Upload Pictures</button>
+                          </div>
+                            <div class="editicon"> <i class="fa fa-upload" aria-hidden="true">  <span style="font-weight: 500">Upload Images</span></i></div> 
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="thumb col-md-2" ng-repeat="image in file">
+                            <img ngf-thumbnail="image" class="thumb-img">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-6">
+                            <button type="submit" class="btn btn-info" style="width: 250px;"><i class="icon-hand-right"></i>Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

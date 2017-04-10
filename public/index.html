@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" data-ng-app="DemoApp">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tifanee</title>
+
+  <!-- CSS Link-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="lib/angular-material.min.css"/>
+  <link rel="stylesheet" href="lib/material-datetimepicker.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="css/style.css" rel="stylesheet">  
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/angular.js"></script>
+  <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="lib/angular-storage.min.js"></script>
+  <script type="text/javascript" src="lib/angulargrid.js"></script>
+  <script type="text/javascript" src="lib/angular-aria.min.js"></script>
+  <script type="text/javascript" src="lib/angular-material.min.js"></script>
+  <script type="text/javascript" src="lib/moment.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/ng-file-upload.min.js"></script>
+  <script type="text/javascript" src="lib/ngFacebook.js"></script>
+  <script src="lib/angular-messages.min.js"></script>
+  <script src="lib/moment-with-locales.min.js"></script>
+
+  <script src="lib/ui-bootstrap-0.2.0.min.js"></script>
+  <script type="text/javascript" src="lib/async.min.js"></script>
+
+  <script type="text/javascript" src="config/config.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers/mainCtrl.js"></script>
+  <script type="text/javascript" src="js/controllers/cartCtrl.js"></script>
+  <script type="text/javascript" src="js/controllers/userCtrl.js"></script>
+  <script type="text/javascript" src="js/controllers/productCtrl.js"></script>
+
+  <script src="js/factory/userproductFactory.js"></script>
+  <script src="js/factory/userFactory.js"></script>
+  <script src="js/factory/cart.js"></script>
+  <script src="js/factory/ordersFac.js"></script>
+
+  <script src="js/directives/uploadDirective.js"></script>
+  <script src="js/directives/confirmDirective.js"></script>
+  <script src="js/directives/birthdateDirective.js"></script>
+  <!-- <script src="https:////connect.facebook.net/en_US/all.js" id="facebook-jssdk"> </script> -->
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  
+</head>
+
+<body data-ng-controller="MainController" data-ng-init="init()">
+  <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+              <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting" ng-click="resetsearch();">
+                  <img src="images/logo.svg" style="width: 111px;" >
+              </a>
+          </div>
+          <div class="container" id="custom-search-input">
+          <ul>
+            <li class="dropdown category-dropdown" uib-dropdown>
+              <a role="button" class="dropdown-toggle drop-down" uib-dropdown-toggle >
+                    CATEGORIES<b class="caret"></b>
+              </a>
+
+              <ul class="dropdown-menu mega-menu">
+                  <div ng-repeat="maincat in mainCategorylist" class="col-sm-6" ng-click="getAllProductBySuperCategory(maincat)">
+                    <li >
+                      <img src="images/clothes.png" style="height: 60px;"> {{maincat.maincatg_name}}
+                    </li>
+                  </div> 
+              </ul>
+            </li>
+            <li class="input-group">
+              <span class="input-group-btn">
+                  <button class="btn btn-info btn-lg" type="button">
+                      <img src="images/search.svg">
+                  </button>
+              </span>
+            <input type="text" class="form-control input-lg" ng-model="selectedMaincat.maincatg_name" placeholder="Search products & brands" />
+            </li>
+          </ul>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+             <ul ng-if="userSession.login" class="nav navbar-nav pull-right">
+                  <li class="dropdown" uib-dropdown>
+                      <a role="button" class="dropdown-toggle" uib-dropdown-toggle>
+                         {{userSession.user_name}}
+                         <div class="img-rounded profile-img"> <img ng-if="userSession.avatar && !userSession.facebookId" height="45" width="45" class="img-circle" ng-src="../assets/avatar/{{userSession.avatar}}" alt="">
+                     <img ng-if="userSession.avatar && userSession.facebookId" height="45" width="45" class="img-circle" ng-src="{{userSession.avatar}}" alt="">
+                      <img ng-if="!userSession.avatar" height="45" width="45" class="img-circle img-thumbnail" ng-src="../assets/avatar/avatar.png" alt=""></div>
+                         <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                          <li><a ui-sref="myprofile({uid:userSession.userid})" >My Profile</a></li>
+                          <li><a ui-sref="dashboard" >My Dashboard</a></li>
+                          <li><a ui-sref="addproducts({uid:userSession.userid})" >Sell Product</a></li>
+                          <li><a ui-sref="myproducts({uid:userSession.userid})" >My Products</a></li>
+                          <li><a href="#">My Settings</a></li>
+                          <li ng-if="userSession.login"><a ng-click="usersignout()">Sign out</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <ul ng-if="!userSession.login" class="nav navbar-nav pull-right"> 
+                  <li ng-if="!userSession.login"><a ui-sref="signin" style="margin-top: 10px;">SIGN IN</a></li>
+                  <li ng-if="!userSession.login"><a ui-sref="signin"><button class="button btn-primary">SELL NOW</button> </a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div role="main">
+          <div ui-view></div>
+  </div>
+  <!-- Footer -->
+  <div>
+    <footer class="footer">
+    </footer>
+  </div>
+</body>
+</html>

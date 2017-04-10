@@ -1,0 +1,56 @@
+<div class="container">
+  <div id="loginbox" class="mainbox col-md-10 col-md-offset-1" >
+    <div class="contentBox clearfix">
+      <div class="column_right" style="float: none;">
+        <div class="row">
+            <div class="col-md-12" style="margin-bottom: 25px;">
+                <h4><b>SIGN IN</b></h4>
+                <p>NOT REGISTERED?  SIGN UP AND GET SHOPPING VOUCHERS WORTH $50</p>
+            </div>
+             <!-- <div class="col-md-6 login-form">
+                            <span class="signup-seperator">OR</span>
+                            <div id="emailForm">
+                               
+                                <form data-ng-submit="loginfrm.$valid && login(userinfo)" name="loginfrm" id="signupform" class="form-horizontal"  novalidate>
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <span>
+                                            <div data-ng-messages="loginfrm.$submitted && loginfrm.email.$error" role="alert" class="error_msg">
+                                              <div data-ng-message="required">Please Enter Email Address</div>
+                                              <div data-ng-message="pattern">Enter Valid Email Address</div>
+                                            </div>
+                                        </span>
+                                        <input type="email" class="form-control" id="text-input" placeholder="Enter Email Address" data-ng-model="userinfo.user_email" name= "email" required>
+                                </div>
+                                <div class="form-group">
+                                    <span ng-if="loginfrm.$submitted">
+                                            <div data-ng-messages="loginfrm.$submitted && loginfrm.password.$error" role="alert" class="error_msg">
+                                              <div data-ng-message="required">Please Enter Password</div>
+                                            </div>
+                                        </span>
+                                        <input type="password" class="form-control" id="text-input" name="password" id="password" placeholder="Enter Password" data-ng-model="userinfo.user_password" required>
+                                </div>
+                               
+                                <div class="form-group">  
+                                    <button id="btn-signup" type="submit" class="button btn-block btn-primary"><i class="icon-hand-right"></i> &nbsp SIGN IN</button>
+                                    <div ng-model="signupmsg" ng-show="showerrmsg" class="login_err_msg">{{errmsg}}</div>
+                                    <div ng-model="signupmsg" ng-show="showsuccess" class="success_msg">{{signupmsg}}</div>
+                                </div>    
+                                </form>
+                                </div>
+                        </div> -->
+                        <div class="col-md-12" ng-click="facebooklogin()">
+                            <a id="btn-fblogin"  ng-hide="isLoggedIn"  class="fbjsLogin fbConnectButton fbButton">
+                                <img alt="" src="images/facebook.svg" >&nbsp;&nbsp;Sign in with Facebook
+                            </a>
+                        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

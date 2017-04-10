@@ -1,0 +1,79 @@
+<div class="comman_background1 homepage" style="margin-top:92px;">
+	<div class="" data-ng-controller="usercontroller" data-ng-init="init()" >
+			<div id="gridWrap">
+            <ul class="dynamic-grid" angular-grid="pics" ag-grid-width="200" ag-gutter-size="20">
+                <!-- ngRepeat: pic in images -->
+
+                <li data-ng-repeat="pic in pics" class="grid" angulargridoptions="" data-ng-clock="">
+                <a href="#" ui-sref="productdetails({productid:pic.UProduct_id})">
+                <div class="hover-box">
+                    <div class="buy-now pull-left"> <button class="btn btn-primary">BUY NOW</button> </div>
+                    <div class="fav"><img src="images/fav.svg" style="width: 23px;"></div>
+
+                </div>
+                    <div class="img-wrapper">
+                        <img ng-if="pic.ImageName" class="grid-img img-responsive" ng-src="http://tifanee.fountaintechies.com/assets/productimages/{{pic.ImageName}}" alt="">
+    					<img ng-if="!pic.ImageName" class="grid-img" ng-src="../assets/productimages/-text.png" alt="" height="200px;">
+                        <h2 class="price ng-binding">{{pic.Price | currency}}</h2>
+                    </div>
+                    <div class="img-desc-wrap">
+                        <div class="title ng-binding">
+                           <a href="#" ui-sref="productdetails({productid:pic.UProduct_id})"> {{pic.Ad_Title}}</a>
+                        </div>
+                        <!-- <p class="ng-binding">
+                            <a href="#" ui-sref="supercategoryproducts({supid:pic.maincatg_id})">{{pic.maincatg_name}}</a> >> <a href="#" ui-sref="categoryproducts({sid:pic.maincatg_id,catid:pic.catg_id})">{{pic.catg_name}}</a>
+                        </p> -->
+                        <p class="product-description ng-binding">
+                            {{pic.Description | limitTo: 60}}..
+                        </p>
+                        <!-- <div class="watch ng-binding"> {{pic.Shipping}}</div> -->
+                        <!-- <div class="likes-watch-wrap">
+                           <button type="submit" ng-disabled="form.$invalid" class="btn btn-info">Add to Cart</button>
+                        </div> -->
+                    </div>
+				    </a>
+                </li><!-- end ngRepeat: pic in images --><!-- end ngRepeat: pic in images -->
+            </ul>
+<!--            <ul class="dynamic-grid" angular-grid="images" angular-grid-options="angularGridoptions" >
+                <li data-ng-repeat="pic in images" class="grid col-md-3 col-sm-4 col-xs-6" angularGridOptions data-ng-clock>
+                    <img ng-src="{{pic.url}}" class="grid-img" data-actual-width="{{pic.width}}" data-actual-height="{{pic.height}}" />
+                    <div class="img-desc-wrap">
+                        <div class="title">
+                            {{pic.title}}
+                        </div>
+                        <div class="uploaded-date">
+                            Uploaded on : {{pic.date}} {{searchTxt}}
+                        </div>
+                        <div class="likes-watch-wrap">
+                            <div class="likes"><span class="icon-like"></span> {{pic.likes}}</div>
+                            <div class="watch"><span class="icon-watch"></span> {{pic.watch}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>-->
+<!--         </div>
+ -->			<!-- <ul class="dynamic-grid" angular-grid="pics" ag-grid-width="300" ag-gutter-size="10" ag-id="gallery" ag-refresh-on-img-load="false" >
+			     <li ng-repeat="pic in pics" class="grid">
+			     	<img ng-if="pic.ImageName" class="grid-img" ng-src="../assets/productimages/{{pic.ImageName}}" alt="">
+					<img ng-if="!pic.ImageName" class="grid-img" ng-src="../assets/productimages/-text.png" alt="">
+
+                    <div class="img-desc-wrap">
+                        <div class="title ng-binding">
+                            {{pic.Ad_Title}}
+                        </div>
+                        <div class="uploaded-date ng-binding">
+                            <a href="#" ui-sref="supercategoryproducts({supid:pic.maincatg_id})">{{pic.maincatg_name}}</a> >> <a href="#" ui-sref="categoryproducts({sid:pic.maincatg_id,catid:prod.catg_id})">{{pic.catg_name}}</a>
+                        </div>
+                        <div class="uploaded-date ng-binding">
+                            {{prod.Description}}
+                        </div>
+                        <div class="likes-watch-wrap">
+                            <div class="likes ng-binding">{{ pic.Price | currency }}</div>
+                            <div class="watch ng-binding"> {{pic.Shipping}}</div>
+                        </div>
+                    </div>
+
+			     </li>
+ 			</ul> -->
+	</div>
+</div>

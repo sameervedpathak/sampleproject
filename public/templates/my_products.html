@@ -1,0 +1,162 @@
+<div class="comman_background1 homepage" style="background-color: #fff; margin-top:0px; padding-top: 40px;">
+    <center style="margin-bottom: 40px;">
+        <div>
+            <div class="user-profileimg" ng-style="{'background-image': 'url(' + 'images' + '/' +'profile.jpg' + ')'}" ng-if="userSession.avatar && !userSession.facebookId"></div>
+            <div class="user-profileimg" ng-style="{'background-image': 'url(' + userSession.avatar + ')'}" ng-if="userSession.avatar && userSession.facebookId"></div>
+            <h3>{{userSession.user_name}}</h3>
+            <p>{{userSession.user_email}}</p>
+        </div>
+    </center>
+    <div class="container-fluid" style="background-color: #fff;">
+        <ul class="nav nav-tabs col-md-9 col-md-offset-3" role="tablist">
+            <li role="presentation" class="active">
+                <a href="dashboard#all_products" aria-controls="all_products" role="tab" data-toggle="tab" ng-click="doGetProducts()">
+                    <span>PRODUCTS</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="dashboard#orders" aria-controls="orders" role="tab" data-toggle="tab" ng-click="getOrders()">
+                    <span>ORDERS</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="dashboard#purchases" aria-controls="purchases" role="tab" data-toggle="tab" ng-click="getPurchase()">
+                    <span>PURCHASES</span></a>
+            </li>
+        </ul>
+    </div>
+    <section>
+        <!-- Tab panes -->
+        <div class="tab-content user_dashboard_back" style="padding: 40px;">
+            <div role="tabpanel" class="tab-pane active " id="all_products" ng-controller="myProductCntrl">
+                <div class="comman_background1 homepage">
+                  
+                    <div class="row portfolio"  style="padding: 0px 40px 20px 40px;">
+                        <div class="col-lg-2 col-sm-3 col-xs-4 ">
+                            <div class="panel panel-default" style="height: 377px"">
+                                <div style="text-align: center;" ui-sref="addproducts">
+                                        <br><br><br><br><br><br><br><br>
+                                        <i class="fa fa-plus" aria-hidden="true" style="font-size: 30px;"></i>
+                                        <br>
+                                        <span>All New Products</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div data-ng-repeat="prod in userProductList">
+                           <div class="col-lg-2 col-sm-3 col-xs-4" >
+                              <div class="panel panel-default">
+                                  <div>
+                                      <div class="user-soldproductimg" ng-style="{'background-image': 'url(' + 'http://tifanee.fountaintechies.com' + '/' +'assets' + '/' + 'productimages' + '/' + prod.ImageName + ')'}" ng-if="prod.ImageName" ui-sref="productdetails({productid:prod.UProduct_id})" style="margin-bottom: 20px;"></div>
+                                      <div class="user-soldproductimg" ng-style="{'background-image': 'url(' + 'http://tifanee.fountaintechies.com' + '/' +'assets' + '/' + 'productimages' + '/' + '-text.png' + ')'}" ng-if="!prod.ImageName" ui-sref="productdetails({productid:prod.UProduct_id})" style="margin-bottom: 20px;"></div>
+                                  </div>
+                                  <div style="text-align: right;padding-right: 10px;" >
+                                            <a class="btn btn-default btn-xs" ui-sref="editproducts({productid:prod.UProduct_id})" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                                            <a class="btn btn-default btn-xs" confirmed-click="deleteProduct(prod,$index)" ng-confirm-click="Are you sure you want to remove?"><span class="glyphicon glyphicon-trash"></span></a>
+                                  </div>  
+                                  <div class="myproducts_a">
+                                        <a class="img-desc-wrap title" ui-sref="productdetails({productid:prod.UProduct_id})">{{prod.Ad_Title}}</a>
+                                  </div>
+                                  <div >
+                                      <div class="sold_product_price"><p>{{ prod.Price | currency:value=prod.CurrencySymbol}} </p><p>{{prod.Shipping}}</p></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="clear"></div>
+                      </div>
+                    </div>      
+                  </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="orders">
+                <div class="homepage">
+                     <div class="container">
+                        <h4 style="text-align: left;font-weight: 600;">ORDER LIST</h4>  <br>
+                      
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            ORDER ID
+                                        </th>
+                                        <th>
+                                            SELLER DETAILS
+                                        </th>
+                                        <th>
+                                            PRODUCT DETAILS
+                                        </th>
+                                        <th>
+                                            DELIVERY STATUS
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="order in orders">
+                                        <td>
+                                            {{order.orderId}}
+                                        </td>
+                                        <td>
+                                            {{order.buyerName}}
+                                            <br>{{order.buyerMobile}}
+                                            <br>{{order.buyerEmail}}
+                                        </td>
+                                        <td>
+                                            {{order.productTitle}}
+                                            <br>{{order.productDescription}}
+                                        </td>
+                                        <td>
+                                            Pending-Delivery
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="purchases">
+                <div class="homepage" >
+                    <div class="container">
+                        <h4 style="text-align: left;font-weight: 600;"> PURCHASE LIST</h4>  <br>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ORDER ID
+                                    </th>
+                                    <th>
+                                        SELLER DETAILS
+                                    </th>
+                                    <th>
+                                        PRODUCT DETAILS
+                                    </th>
+                                    <th>
+                                        DELIVERY STATUS
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="purchase in purchases">
+                                    <td>
+                                        {{purchase.orderId}}
+                                    </td>
+                                    <td>
+                                        {{purchase.sellerName}}
+                                        <br>{{purchase.sellerMobile}}
+                                        <br>{{purchase.sellerEmail}}
+                                    </td>
+                                    <td>
+                                        {{purchase.productTitle}}
+                                        <br>{{order.productDescription}}
+                                    </td>
+                                    <td>
+                                        Pending-Delivery
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

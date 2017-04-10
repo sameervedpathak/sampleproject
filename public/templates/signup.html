@@ -1,0 +1,94 @@
+
+
+
+
+    <div class="container">
+            <div id="signupbox" class="mainbox col-md-10 col-md-offset-1" >
+                <div class="contentBox clearfix">
+                    <div class="column_right" style="float: none;">
+                    <div class="row">
+                        <div class="col-md-12" style="margin-bottom: 25px;">
+                            <h4><b>SIGN UP</b></h4>
+                            <p>ALREADY REGISTERED? <a href="#/signin" class="text-center new-account">SIGN IN</a></p>
+                        </div>
+                        
+                        <div class="col-md-6 login-form">
+                            <span class="signup-seperator">OR</span>
+                            <div id="emailForm">
+                                <!-- auto-populate email from Facebook if available, and set focus -->
+                                <!-- based on presence/absence of email -->
+                                <!-- focus on email instead if name is valid but email is invalid -->
+                                <form data-ng-submit="signup(userinfo,signupfrm.$valid)" name="signupfrm" id="signupform" class="form-horizontal"  novalidate>
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                <div class="form-group">
+                                        <span>
+                                            <div data-ng-messages="signupfrm.$submitted && signupfrm.fname.$error" role="alert" class="error_msg">
+                                              <div data-ng-message="required">Please Enter First Name</div>
+                                            </div>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Enter First Name" data-ng-model="userinfo.user_fname" name= "fname" id= "fname" required>
+                                </div>
+                                    
+                                <div class="form-group">
+                                        <span>
+                                            <div data-ng-messages="signupfrm.$submitted && signupfrm.lname.$error" role="alert" class="error_msg">
+                                              <div data-ng-message="required">Please Enter Last Name</div>
+                                            </div>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Enter Last Name" data-ng-model="userinfo.user_lname" name= "lname" id= "lname" required>
+                                </div>
+                                <div class="form-group">
+                                    <span>
+                                            <div data-ng-messages="signupfrm.$submitted && signupfrm.email.$error" role="alert" class="error_msg">
+                                              <div data-ng-message="required">Please Enter Email Address</div>
+                                              <div data-ng-message="pattern">Enter Valid Email Address</div>
+                                            </div>
+                                        </span>
+                                        <input type="email" class="form-control" id="text-input" placeholder="Enter Email Address" data-ng-model="userinfo.user_email" name= "email" required>
+                                </div>
+                                <div class="form-group">
+                                    <span ng-if="signupfrm.$submitted">
+                                            <div data-ng-messages="signupfrm.$submitted && signupfrm.password.$error" role="alert" class="error_msg">
+                                              <div data-ng-message="required">Please Enter Password</div>
+                                            </div>
+                                        </span>
+                                        <input type="password" class="form-control" id="text-input" name="password" id="password" placeholder="Enter Password" data-ng-model="userinfo.user_password" required>
+                                </div>
+                                <div class="form-group">
+                                        <select  name="gender" id="gender" data-ng-model="userinfo.gender">
+                                            <option value="">Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                </div>
+                                <div class="form-group birth-date">       
+                                      <input rsmdatedropdowns name="birthdate" id="birthdate" data-ng-model="userinfo.birthdate" ng-disabled="test()">
+                                    {{userinfo.birthdate}}
+                                </div>
+                                <div class="form-group">  
+                                    <button id="btn-signup" type="submit" class="button btn-block btn-primary"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                    <div ng-model="signupmsg" ng-show="showalreadyregimsg" class="login_err_msg">{{alradyregistermsg}}</div>
+                                    <div ng-model="signupmsg" ng-show="showsuccess" class="success_msg">{{signupmsg}}</div>
+                                </div>    
+                                </form>
+                                </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <a id="btn-fblogin" href="#" ng-click="facebooklogin()" ng-hide="isLoggedIn"  class="fbjsLogin fbConnectButton fbButton">
+                                <img alt="" src="images/facebook.svg">&nbsp;&nbsp;Sign in with Facebook
+                            </a>
+                        </div>
+                    </div>
+                     
+                    </div>
+                </div>
+
+             </div>
+                               
+             </div>

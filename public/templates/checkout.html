@@ -1,0 +1,177 @@
+<div class="shit shift-left">
+      <div class="container">
+            <div class="row">
+                  <div class="colspan12">
+                        <form name="addressForm" class="form-groupone" novalidate>
+                            <fieldset class="checkout" > 
+                            <div class="col-md-10 col-md-offset-1 row summary">
+                                  <h3 style="margin-bottom: 10px;">ORDER SUMMARY</h3>
+                            </div>
+                    <div class="col-md-10 col-md-offset-1 row summarytable">
+                      <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>ITEM</th>
+                                  <th>PRICE</th>
+                                  <th>DELIVERY DETAILS</th>
+                                  <th>SUBTOTAL</th>
+                                </tr>
+                           </thead>
+                            <tbody>
+                               <tr>
+                                 <td></td>
+                                 <td>{{product.Ad_Title}}<br>{{product.Description}}</td>
+                                 <td>{{product.Price}}</td>
+                                 <td></td>
+                                 <td>{{product.Price}}</td>
+                               </tr>
+                             </tbody>
+                    </table>
+                  </div>
+                  <div class="col-md-10 col-md-offset-3 row">
+                      <h4 style="margin-bottom: 30px;">Delivery Address</h4>
+                  </div>    
+
+        <div class="form-grouptwo">
+        <div class="col-md-6 col-md-offset-3 row" >
+        <strong>NAME</strong>
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+        </div>
+        </div>
+
+
+
+
+    <!-- <div class="form-group row">
+      <label for="name" class="col-md-4">NAME</label>
+      <div class="col-md-8">
+        <input type="text" name="name" class="form-control" ng-model="address.name" required>
+      </div>
+    </div> -->
+
+    <div class="form-groupthree">
+        <div class="col-md-6 col-md-offset-3 row" >
+        <strong>ADDRESS 1</strong>
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+        </div>
+        </div>
+
+
+    <!-- <div class="form-group row">
+      <label for="address" class="col-md-4">ADDRESS</label>
+      <div class="col-md-8">
+        <input type="text" name="address" class="form-control" ng-model="address.address" required>
+      </div>
+    </div> -->
+
+   <div class="form-groupfour">
+        <div class="col-md-6 col-md-offset-3 row" >
+        <strong>ADDRESS 2</strong>
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+        </div>
+        </div>
+
+
+
+
+    <!-- <div class="form-group row">
+      <label for="address1" class="col-md-4">ADDRESS1</label>
+      <div class="col-md-8">
+        <input type="text" name="address1" class="form-control" ng-model="address.address1">
+      </div>
+    </div> -->
+<div class="form-groupfive">
+        <div class="col-md-6 col-md-offset-3 row" >
+        <strong>POSTAL/ZIP CODE</strong>
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+        </div>
+        </div>
+
+<div class="col-md-12">
+  <hr>
+</div>
+
+    <!-- <div class="form-group row">
+      <label for="zip_code" class="col-md-4">POSTAL/ZIP CODE</label>
+      <div class="col-md-8">
+        <input type="text" name="zip_code" class="form-control" ng-model="address.zip_code" required>
+      </div>
+    </div> -->
+    
+
+    <div class="col-md-10 col-md-offset-3 row">
+    <h4 style="margin-bottom: 30px;">Payment Details</h4>
+    </div>
+
+    <div class="form-groupsix">
+        <div class="col-md-6 col-md-offset-3 row" >
+        <strong>CARDHOLDER NAME</strong>
+
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+        </div>
+        </div>
+
+
+
+    <!-- 
+    <div class="form-group row">
+      <label for="cardName" class="col-md-4">CARDHOLDER NAME</label>
+      <div class="col-md-8">
+        <input type="text" name="cardName" class="form-control" ng-model="card.name" required>
+      </div>
+    </div> -->
+ <div class="form-groupseven">
+        <div class="col-md-6 col-md-offset-3 row" >
+        <strong>CARD NUMBER</strong>
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+        </div>
+        </div>
+
+
+    <!-- <div class="form-group row">
+      <label for="cardNum" class="col-md-4">CARD NUMBER</label>
+      <div class="col-md-8">
+        <input type="text" name="cardNum" class="form-control" ng-model="card.number" required>
+      </div>
+    </div> -->
+
+ <div class="form-groupeight">
+        <div class="col-md-6 col-md-offset-3 row" >
+        <strong>CVV</strong>
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+        </div>
+        </div>
+
+
+            
+<!-- 
+    <div class="form-group row">
+      <label for="cardCVV" class="col-md-4">CVV </label>
+      <div class="col-md-8">
+        <input type="text" name="cardCVV" class="form-control" ng-model="card.cvv" required>
+      </div>
+    </div> -->
+
+    <div class="form-groupnine">
+      <div class="col-md-6 col-md-offset-3 row" ><strong>EXPIRY DATE</strong></div>
+      <div class="col-md-3 col-md-offset-3">
+        <input type="text" name="month" class="form-control" ng-model="card.month" placeholder="MM" required>
+      </div>
+      <div class="col-md-3 ">
+        <input type="year" name="name"  class="form-control" ng-model="card.year" placeholder="YY" required>
+      </div>
+    </div>
+    <div class="col-md-12 col-md-offset-5 row"">
+    
+
+     <a >
+                           <button type="button" class="btntwo" ng-click="doCheckout()"> BUY NOW </button>
+                           </a>
+    </div>
+    </fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>

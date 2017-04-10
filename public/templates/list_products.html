@@ -1,0 +1,49 @@
+<style type="text/css">
+  .panel-body {
+    padding: 2px !important;
+}
+</style>
+<div style="margin-top:15px" class="mainbox">
+    <div class="container" id="tourpackages-carousel">
+      <div class="col-12" class="comman_border">
+      <div class="col-12" style="margin-top:92px;">
+        <div id="gridWrap">
+            <ul class="dynamic-grid" angular-grid="productList" ag-grid-width="200" ag-gutter-size="20">
+                <li data-ng-repeat="prod in productList" class="grid ng-scope img-loaded angular-grid-item" angulargridoptions="" data-ng-clock="">
+                   <a href="#" ui-sref="productdetails({productid:prod.UProduct_id})">
+                    <img ng-if="prod.ImageName" class="grid-img" ng-src="http://tifanee.fountaintechies.com/assets/productimages/{{prod.ImageName}}" alt="">
+                    <img ng-if="!prod.ImageName" class="grid-img" ng-src="../assets/productimages/-text.png" alt="">
+
+                    <div class="img-desc-wrap">
+                        <div class="title ng-binding">
+                            <a href="#" ui-sref="productdetails({productid:prod.UProduct_id})">{{prod.Ad_Title}}</a>
+                        </div>
+                        <div class="uploaded-date ng-binding">
+                            <a href="#" ui-sref="supercategoryproducts({supid:prod.maincatg_id})">{{prod.maincatg_name}}</a> >> <a href="#" ui-sref="categoryproducts({sid:prod.maincatg_id,catid:prod.catg_id})">{{prod.catg_name}}</a>
+                        </div>
+                        <div class="uploaded-date ng-binding">
+                            {{prod.Description}}
+                        </div>
+                        <div class="likes-watch-wrap">
+                            <div class="likes ng-binding">{{ prod.Price | currency }}</div>
+                            <div class="watch ng-binding"> {{prod.Shipping}}</div>
+                        </div>
+                        <div class="likes-watch-wrap">
+                           <button type="submit" ng-disabled="form.$invalid" class="btn btn-xs btn-info">Add to Cart</button>
+                        </div>
+                    </div>
+                  </a>
+                </li><!-- end ngRepeat: pic in images --><!-- end ngRepeat: pic in images -->
+            </ul>
+        </div>
+      <dir-pagination-controls
+           max-size="1"
+           direction-links="true"
+           boundary-links="true" >
+        </dir-pagination-controls>
+      </div>
+
+    </div>
+
+    </div><!-- End container -->
+</div>

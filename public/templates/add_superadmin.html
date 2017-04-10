@@ -1,0 +1,151 @@
+<div class="container-fluid" data-ng-controller="addUserController">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-2" id="dashboard-main-section">
+            <div class="row">
+                <div class="col-md-12" id="welcomeDiv">
+                <a class="navbar-brand logo-dashboard" href="index.php"><img src="images/logo.png" /></a>
+                <h1><strong>Add Super Admin details</strong></h1>
+                </div>
+            </div>
+            <div class="row"></div>
+
+            <div class="row">
+                <div class="col-md-8 company-dash-menu">
+                    <p class="startupTitle">User details</p>
+                    <form name="addUserForm" id="addcompanies" ng-submit="doAddUser(addUserForm.$valid)" novalidate>
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="FirstName" ng-model="superadmin.brand_name" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.firstName.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter First Name</div>
+                                    </div>
+                                </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" ng-model="superadmin.last_name" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.last_name.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter Last Name</div>
+                                    </div>
+                                </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email Id</label>
+                            <input type="text" name="emalid" ng-model="superadmin.email_id" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.email_id.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter your email address</div>
+                                    </div>
+                                </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="text" name="mobileno" ng-model="superadmin.mobile_number" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.mobile_number.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please enter your mobile number</div>
+                                    </div>
+                                </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea placeholder="Enter address here" rows="3" ng-model="superadmin.address" name="address" required></textarea>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.address.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter your address</div>
+                                    </div>
+                                </span>
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" name="password" ng-model="superuser.password" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.password.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter new password for the user</div>
+                                    </div>
+                                </span>
+                        </div>
+<!--                         <div class="form-group">
+                            <label>Industry</label>
+                            <select ng-model="company.category" name="industries" required>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Food and Beverages">Food and Beverages</option>
+                                <option value="Information Technology">Information Technology</option>
+                            </select>
+                            <span>
+                                <div data-ng-messages="addUserForm.$submitted && addUserForm.industries.$error" role="alert" class="error_msg">
+                                    <div data-ng-message="required">Please Select Industry</div>
+                                </div>
+                            </span>
+                        </div> -->
+                        <!-- <div class="form-group">
+                            <label>Specialization</label>
+                            <select ng-model="company.subcategory" multiple>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Website">Website</option>
+                                <option value="Processed food">Processed food</option>
+                            </select>
+                        </div> -->
+<!--                         <div class="form-group">
+                            <label>Upload your company's logo</label>
+                            <input id="file_browse1" type='file' name="company url" ng-model="company.logo_url" onchange="angular.element(this).scope().updateattachment('file_browse1');" accept="image/*" />
+                        </div>
+                        <div class="form-group">
+                            <label>Facebook url</label>
+                            <input type="text" name="facebookurl" ng-model="company.facebook_url" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.facebookurl.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter Facebook URL</div>
+                                    </div>
+                                </span>
+                            <label>LinkedIn url</label>
+                            <input type="text" name="linkdinurl" ng-model="company.linkedin_url" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.linkdinurl.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter Linkedin URL</div>
+                                    </div>
+                                </span>
+                            <label>Twitter url</label>
+                            <input type="text" name="twitterurl" ng-model="company.twitter_url" required>
+                                <span>
+                                    <div data-ng-messages="addUserForm.$submitted && addUserForm.twitterurl.$error" role="alert" class="error_msg">
+                                        <div data-ng-message="required">Please Enter Twitter URL</div>
+                                    </div>
+                                </span>
+                        </div>
+                        <div class="clearfix"></div> -->
+
+              <!--   </div>
+            </div> -->
+            <!-- <hr>
+            <div class="row">
+                <div class="col-md-8 company-dash-menu">
+                    <p class="startupTitle">Jobs</p>
+                    <form>
+                        <div class="form-group">
+                            <label>Job title</label>
+                            <input type="text" name="company name">
+                        </div>
+                        <div class="form-group">
+                            <label>job description</label>
+                            <textarea placeholder="Enter here" rows="5"></textarea>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- <p class="formPage__submit"> -->
+                      <button type="submit" name="commit" value="Save your details" class="button">Save your details</button>
+                    <!-- </p> -->
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>

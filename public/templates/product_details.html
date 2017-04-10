@@ -1,0 +1,160 @@
+<div class="card shift-right">
+  <div class="container">
+      <div class="wrapper row">
+        <div class="col-md-offset-1">
+                      <div class="rightmenu">
+                          <div class="preview col-md-12">  
+                          <div>
+                          
+                            <span class="glyphicon glyphicon-menu-left"></span>
+                            <span>
+                            <p class="allproduct">ALL PRODUCT</p>
+                            </span>
+                            
+                        </div>
+                      </div>
+             <div class="row">
+                      <div class="preview col-md-6">
+                          <div class="preview-pic tab-content">
+                                <div class="tab-pane" id="pic-{{$index}}" ng-class="{'active': $index == 0 }" ng-repeat="image in productDetails.images">
+                                  <img ng-src="http://tifanee.fountaintechies.com/assets/productimages/{{ProductfirstImage}}"  alt="">
+                                </div>
+                          </div>
+                          <div class="subimage">
+                            <ul class="preview-thumbnail nav nav-tabs">
+                            <li ng-repeat="image in productDetails.images" ng-class="{'active': $index == 0 }">
+                            <a data-target="#pic-{{$index}}" data-toggle="tab">
+                            <img ng-src="http://tifanee.fountaintechies.com/assets/productimages/{{image.ImageName}}" ng-click="previewImg(image.ImageName)"/>
+                            </a>
+                            </li>
+                            </ul>
+                            </div>
+                      </div>
+                
+                      <div class="details col-md-6 zero">
+                          <h3 class="product-title">{{productDetails.Ad_Title}}</h3>
+                          <p>This versatile crew neck gives you a casual look without<br>
+                              compromising on comfort. With an authentic design, great fit<br>
+                              and soft feel, this shirt will definetly be your fevorite tree.<br>
+                          </p>
+                          <p>if you feel like it, you can share this page via Facebook or Twitter.<br>
+                              Don't forget to spread the word to your freinds and family!</p>
+                        <div class="row">
+                        <div class="col-md-6">   
+                        <div class="pricetag">   
+                            <p>Price: <span class="glyphicon glyphicon-usd"></span><b style="">18<b></p> 
+                          </div>
+                          </div>
+                          </div>
+                          <div class="row">
+                        <div class="col-md-6">   
+                          <div class="sizeone">
+                          <p>size : <b> XL</b></p>
+                          </div>
+                          </div>
+                          </div>
+                          <div class="row">
+                        <div class="col-md-3 shareone">   
+                          
+                           <p><span class="glyphicon glyphicon-share"></span>Share</p>
+                           
+                           
+                           </div>
+                          <div class="row">
+                        <div class="col-md-3 likeone">   
+                           
+                           <p><span class="glyphicon glyphicon-heart"></span>Like&nbsp;this</p> 
+                           </div>
+                           </div>
+                           </div>
+
+                             <div class="row">
+                        
+                            <div class="col-md-6">   
+                                
+                           <a >
+                           <button type="button" class="btnone" ng-click="doCheckout()"> BUY NOW </button>
+                           </a>
+
+                           </div>
+                          </div>
+
+
+                              <div class="row">
+                              <div class="col-md-2 profileimg">   
+                          
+                          <img src="./images/img.jpg" class="img-circle" alt="Cinque Terre" width="70" height="70"> 
+                          </div>
+                          
+                          
+                              <div class="col-md-4 profilename">   
+                          
+                               <p><h4><b>Charmaine</b></h4>
+                                  Charmaine_singapure@Gmail.com
+                                </p>
+                              
+                          </div>
+                          </div>
+                
+        
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>    
+
+   
+<div class="row">
+<div class="col-md-offset-1 thumbnailimg">
+                  <div class="col-md-12">
+                <div class="thumbnailheading">
+                <h5>You may also like</h5>
+                </div>
+                </div>
+                <div class="col-md-3">
+                <div class="thumbnail">
+                <img src="images/img1.jpg"  alt="" > 
+                <p class="caption"><b>The Alchemist(Signed</br>
+                      Limited Edition Giclee</br>
+                      Print)  </b>
+                </p>
+                </div>
+                </div>
+<div class="col-md-3">
+                <div class="thumbnail">
+                <img src="images/img1.jpg"  alt="" > 
+                <p class="caption"> <b>The Alchemist(Signed</br>
+                      Limited Edition Giclee</br>
+                      Print)  </b>
+                </p>
+                </div>
+                </div>
+<div class="col-md-3">
+                <div class="thumbnail">
+                <img src="images/img1.jpg"  alt=""> 
+                <p class="caption"><b> The Alchemist(Signed</br>
+                      Limited Edition Giclee</br>
+                      Print)  </b>
+                </p>
+                </div>
+                </div>
+<div class="col-md-3">
+                <div class="thumbnail">
+                <img src="images/img1.jpg"  alt=""> 
+                <p class="caption"><b> The Alchemist(Signed</br>
+                      Limited Edition Giclee</br>
+                      Print)  </b>
+                </p>
+                </div>
+                </div>
+
+              
+
+                  
+                
+</div>                
+</div>                
+
+
+
+
